@@ -1,0 +1,3 @@
+本项目是由springMVC+mybatis框架写的java web的增删改查
+数据库使用的是MySQL。
+项目有一个bug新增或删除如果是中文会发生错误，英文则没有问题。

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.goods.GoodsDao">
+    <insert id="save" parameterType="com.dao.goods.Goods">
+       insert into goods(gid,gname,gprice)
+       values(#{gid},#{gname},#{gprice})
+    </insert>
+    <update id="update" parameterType="com.dao.goods.Goods">
+       update goods set gname=#{gname},gprice=#{gprice}
+       where gid=#{gid}
+    </update>
+    <delete id="delete" parameterType="com.dao.goods.Goods">
+       delete from goods where gid=#{gid}
+    </delete>
+    <select id="goodsList" resultType="com.dao.goods.Goods">
+       select * from goods
+    </select>
+    <select id="queryByName" resultType="com.dao.goods.Goods">
+       select * from goods where gname like CONCAT(CONCAT('%', #{gname}), '%')
+    </select>
+    <select id="get" parameterType="String" resultType="com.dao.goods.Goods">
+       select * from goods where gid=#{gid}
+    </select>
+</mapper>
